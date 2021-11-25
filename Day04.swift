@@ -1,3 +1,4 @@
+import UIKit
 /*
     DAY 4: COMPLEX DATA TYPES PT2 - Type annotation
                     "Good data structures and bad code works alot better than the other way around"
