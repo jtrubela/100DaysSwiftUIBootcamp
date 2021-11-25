@@ -1,4 +1,4 @@
-        import UIkit
+        import UIKit
         /*
             DAY 2:  Booleans/String Interpolation
          `          LEARNED:    .toggle(), .uppercased(), isMultiple(of: int)
