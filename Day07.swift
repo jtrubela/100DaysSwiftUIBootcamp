@@ -1,4 +1,4 @@
-import UIkit
+import UIKit
 /*
  DAY 7 - Functions, PT.1
  */
