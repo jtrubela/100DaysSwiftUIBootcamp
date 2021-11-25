@@ -1,4 +1,4 @@
-import UIkit
+import UIKit
 /*
     DAY 5: To be || !To be --- Switch and Ternary Operators
  */
