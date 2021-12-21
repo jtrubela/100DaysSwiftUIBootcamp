@@ -48,7 +48,7 @@ struct ContentView: View {
                     }
                     else if (selectedClass == classes[1]){
                         examStatus = "\nFinal Exam is 12/16/21"
-                        studentStatus = "You're Fucked"
+                        studentStatus = "You're in trouble"
                     }
 
                     else{
