@@ -28,6 +28,8 @@ struct ContentView: View {
     @State private var tipPercentage = 20
     
     @FocusState private var amountIsFocused: Bool
+    @State private var zeroTip = false
+
     
     private var tipPercentages = [10,15,20,25,0]
 
@@ -80,6 +82,7 @@ struct ContentView: View {
                     Text(grandTotal, format: .currency(code: Locale.current.currencyCode ?? "USD"))
                 } header: {
                     Text("Grand Total")
+                    .foregroundColor(tipPercentage == 0 ? .red : .black)
                 }
                 
                 //Add a header to the third section, saying “Amount per person”
