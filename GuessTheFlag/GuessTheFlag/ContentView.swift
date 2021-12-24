@@ -14,6 +14,33 @@
 
 import SwiftUI
 
+struct MakeTitleBlue: ViewModifier {
+
+    func body(content: Content) -> some View{
+            content
+            .font(.largeTitle.weight(.heavy))
+                .foregroundColor(.blue)
+                .background(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 15))
+    }
+}
+
+extension View {
+    func BlueTitle(){
+        modifier(MakeTitleBlue())
+    }
+}
+
+struct FlagImage: View {
+    var ImageText: String
+    
+    var body: some View {
+        Image(ImageText)
+            .renderingMode(.original)
+            .clipShape(Capsule())
+            .shadow(radius: 50)
+    }
+}
 
 struct ContentView: View {
     @State private var countries = ["Estonia","US","Spain","Germany","France","Ireland","Poland","Russia","UK","Italy"].shuffled()
@@ -63,10 +90,7 @@ struct ContentView: View {
                             Button {
                                 flagTapped(number)
                             } label: {
-                                Image(countries[number])
-                                    .renderingMode(.original)
-                                    .clipShape(Capsule())
-                                    .shadow(radius: 50)
+                                FlagImage(ImageText: countries[number])
                             }
                         }
                     }
