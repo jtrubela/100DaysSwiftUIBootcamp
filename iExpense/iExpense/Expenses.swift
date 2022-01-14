@@ -49,7 +49,6 @@ class Expenses: ObservableObject {
 }
 
 
-//THINKING THIS WILL HELP WITH MY ISSUE HAVING A SEPARATE CLASS TO TAKE CARE OF THE BUSINESS SECTION PORTION
 class BusinessExpenses: ObservableObject {
     @Published var businessItems = [ExpenseItem](){
         didSet {
