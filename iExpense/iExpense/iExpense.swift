@@ -10,8 +10,10 @@ import SwiftUI
 
 struct iExpenseView: View {
     
+    // @StateObject - just to be used when first creating the data
     @StateObject var expenses = Expenses()
-    @StateObject var businessExpenses = Expenses()
+    @StateObject var businessExpenses = BusinessExpenses()
+            // This should what the view initalizer accepts but it wants an Expenses object
     
     @State private var addViewIsShowing = false
     
@@ -39,7 +41,7 @@ struct iExpenseView: View {
                 
                 
                 Section{
-                ForEach(businessExpenses.items) { item in
+                ForEach(businessExpenses.businessItems) { item in
                     HStack{
                         VStack(alignment:.leading) {
                             Text(item.name)
@@ -66,7 +68,7 @@ struct iExpenseView: View {
                 }
             }
         }.sheet(isPresented: $addViewIsShowing) {
-            AddView(expenses: expenses, businessExpenses: businessExpenses)
+            AddView(expenses: expenses, businessExpenses: businessExpenses) //Not sure what to do here
         }
     }
     
@@ -75,7 +77,7 @@ struct iExpenseView: View {
     }
     
     func removeBusinessItem(at offsets: IndexSet){
-        businessExpenses.items.remove(atOffsets: offsets)
+        businessExpenses.businessItems.remove(atOffsets: offsets)
 
     }
 }
