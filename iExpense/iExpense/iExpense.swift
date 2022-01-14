@@ -13,7 +13,6 @@ struct iExpenseView: View {
     // @StateObject - just to be used when first creating the data
     @StateObject var expenses = Expenses()
     @StateObject var businessExpenses = BusinessExpenses()
-            // This should what the view initalizer accepts but it wants an Expenses object
     
     @State private var addViewIsShowing = false
     
