@@ -31,10 +31,13 @@ struct MissionInfo: View {
             Text(mission.displayName)
                 .font(.headline)
                 .foregroundColor(.white)
-            
-            Text(mission.formattedLaunchDate)
-                .font(.caption)
-                .foregroundColor(.white.opacity(0.5))
+            HStack{
+                Text("Launched:").italic()
+                
+                Text(mission.formattedLaunchDate)
+            }
+            .font(.caption)
+            .foregroundColor(.white.opacity(0.5))
         }
         .padding(.vertical)
         .frame(maxWidth: .infinity)
@@ -57,6 +60,44 @@ struct MissionCard: View {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(.lightBackground)
         )
+    }
+}
+
+struct MissionGridView: View {
+    let control = MissionControl()
+    
+    let columns = [
+        GridItem(.adaptive(minimum: 150))
+    ]
+        
+    var body: some View {
+        LazyVGrid(columns: columns) {
+            ForEach(control.missions) { mission in
+                NavigationLink {
+                    MissionView(mission: mission, astronauts: control.astronauts)
+                } label: {
+                    MissionCard(mission: mission)
+                }
+            }
+        }
+        .padding([.horizontal, .bottom])
+    }
+}
+
+struct MissionListView: View {
+    let control = MissionControl()
+    
+//    var mission: Mission
+
+    
+    var body: some View {
+        ForEach(control.missions) { mission in
+            NavigationLink {
+                MissionView(mission: mission, astronauts: control.astronauts)
+            } label: {
+                MissionCard(mission: mission)
+            }
+        }
     }
 }
 

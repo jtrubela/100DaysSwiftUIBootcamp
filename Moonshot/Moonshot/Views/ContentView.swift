@@ -10,23 +10,45 @@ import SwiftUI
 struct ContentView: View {
     let control = MissionControl()
 
-    let columns = [
-        GridItem(.adaptive(minimum: 150))
+//    let columns = [
+//        GridItem(.adaptive(minimum: 150))
+//    ]
+//
+    var pickerChoices = [
+        "List", "Grid"
     ]
+    
+    
+    enum listView {
+        case List, Grid
+    }
+
+    
+    @State var listChoice: listView = .Grid
+
     
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(control.missions) { mission in
-                        NavigationLink {
-                            MissionView(mission: mission, astronauts: control.astronauts)
-                        } label: {
-                            MissionCard(mission: mission)
-                        }
-                    }
+                if listChoice == .Grid{
+                    MissionGridView()
                 }
-                .padding([.horizontal, .bottom])
+                else {
+                    MissionListView()
+            }
+                
+            }
+            
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Picker(selection: $listChoice, label: Text("Choose View type")) {
+                        Text("Grid").tag(listView.Grid)
+                        Text("List").tag(listView.List)
+                    }
+                    .pickerStyle(.inline)
+                        .font(.largeTitle)
+                    
+                }
             }
             .navigationTitle("Moonshot")
             .background(.darkBackground)
