@@ -13,9 +13,9 @@ let coloredNavAppearance = UINavigationBarAppearance()
 struct RoundedBackground: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .frame(width: 250, height: 100, alignment: .center)
+            .frame(width: 250, height: 90, alignment: .center)
             .background(RoundedRectangle(cornerRadius: 20))
-            .foregroundColor(.white)
+            .foregroundColor(.white).padding(.top)
     }
 }
 extension View {
@@ -29,7 +29,7 @@ struct TextStyle: ViewModifier {
         content
             .font(.headline)
             .foregroundColor(.black)
-            .padding()
+//            .padding()
     }
 }
 
@@ -93,7 +93,7 @@ struct ListView: View {
                             Text("Desired amount of sleep")
                                 .addTextStyle()
                             Stepper("  \(sleepAmount.formatted()) hours", value: $sleepAmount, in: 4...12, step: 0.25)
-                                .addTextStyle()
+                                .addTextStyle().padding(.horizontal)
                         }
                         .makeRoundedBackground()
                         
@@ -117,13 +117,27 @@ struct ListView: View {
                         
                         
                         Spacer()
-                        Spacer()
-
-                        Section(header: Text("You should get to bed around: ").font(.title3)){
+                        
+                        Section{
                             
-                            Text("\(bedtime)").font(.system(size: 50.0))
-                            Spacer()
-                            Text("\tSleep Better\n with BetterSleep").font(.largeTitle.italic())
+                            
+                            Section(header: Text("You should get to bed around: ")
+                                .font(.title2).foregroundColor(.blue)
+                                .blendMode(.plusLighter)
+                            )
+                            {
+                                
+                                Text("\(bedtime)").font(.system(size: 50.0).bold().italic()).foregroundColor(.blue)
+                                    .blendMode(.plusLighter)
+                            }
+
+                            
+                                Spacer()
+                            
+                                Text("\tSleep Better\n with BetterSleep")
+                                .font(.largeTitle.italic())
+                                .foregroundColor(.red).blendMode(.plusLighter)
+                            
                         }
                     }
                     .navigationTitle("BetterSleep")
