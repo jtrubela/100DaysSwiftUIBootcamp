@@ -1,3 +1,128 @@
+/*//
+//  GameView.swift
+//  MultiplicationPractice
+//
+//  Created by Justin Trubela on 1/5/22.
+//
+
+import SwiftUI
+
+struct GameView: View {
+    @StateObject private var model = GameViewModel()
+    
+    // View settings
+    @State private var gameView = true
+    @State private var resultsView = false
+    @State private var animals = ["bear","buffalo","chick","chicken","cow","crocodile","dog","duck","elephant","frog","giraffe","goat","gorilla","hippo","horse","monkey","monkey","moose","narwhal","owl","panda","parrot","penguin","pig","rabbit","rhino","sloth","snake","walrus","whale","zebra"].shuffled()
+    // Calculate random animal
+//    var randomAnimal: Int {
+//        let number = Int.random(in: 0...30)
+//        return number
+//    }
+    
+    // User settings
+    @State public var numQuestions: Int
+    @State public var numChosen: Int
+    // User math settings
+    @State private var answer = 0
+    @State private var answers = [0,0,0,0].shuffled()
+    @State private var multiplyBy = 1
+    var getAnswers: [Int] {
+        //Shows the user the multiplied answer by one number lower
+        let tempNum1minus = (model.multiplyBy * model.numChosen) - model.numChosen
+        //Shows the user the multiplied answer by one number higher
+        let tempNum2plus = (model.multiplyBy * model.numChosen) + model.numChosen
+        //Shows the user the correct answer
+        model.answer = model.multiplyBy * (model.numChosen)
+        
+        return [tempNum1minus, tempNum2plus, model.answer].shuffled()
+    } // Calculate the answer and 1 above and 1 below
+      
+    // Calculate multiplier
+    var getMultiplier: Int {
+        model.multiplyBy = Int.random(in: 1...12)
+        return multiplyBy
+    }
+    
+    // Alert settings
+    @State private var alertMessage = ""
+    @State private var alertIsShowing = false
+    
+    // Animation settings
+    @State private var chalkboardAnimationAmount = 0.0
+    @State private var spinAnimation = 0.0
+
+    // Game settings
+    @State private var questionCount = 0
+    @State private var selectedAnswer = 0
+    @State private var score = 0
+    
+    var body: some View {
+        if gameView {
+            NavigationView {
+                ZStack{
+                    GameBackground()
+ 
+                    VStack{
+                        HStack{
+                            Text("Multiply By \(numChosen)")
+                                .font(.title)
+                            Spacer()
+                            Text("score: \(score)")
+                                .font(.headline)
+                        }.padding(.horizontal)
+                        ZStack{
+
+                            Blackboard(spinAnimation: $spinAnimation)
+                  
+                            BlackboardViewItem(numChosen: $model.numChosen, multiplyBy: $model.multiplyBy)
+                        }
+                            VStack{
+//            Selection 1
+                            AnimalSelectionView(questionNumber: 0, answers: answers, selectedAnswer: $selectedAnswer, spinAnimation: $spinAnimation)
+//            Selection 2
+                            AnimalSelectionView(questionNumber: 1, answers: answers, selectedAnswer: $selectedAnswer, spinAnimation: $spinAnimation)
+//            Selection 3
+                            AnimalSelectionView(questionNumber: 2, answers: answers, selectedAnswer: $selectedAnswer, spinAnimation: $spinAnimation)
+                        }
+                        .frame(width: 300, height: 520, alignment: .center)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .foregroundColor(.black)
+                        .font(.title2)
+                    }
+                }
+                .onAppear(perform: model.addNewQuestion)
+            }
+            .alert(alertMessage, isPresented: $alertIsShowing){
+                Button("Continue", action: model.addNewQuestion)
+            } message: {
+                Text("Your score is: \(model.score)/\(model.questionCount)")
+            }
+        }
+        else{
+            ResultsView(score: model.score, questionCount: model.questionCount)
+        }
+    }
+
+    func showResults() {
+        gameView.toggle()
+        resultsView.toggle()
+    }
+}
+
+struct GameView_Previews: PreviewProvider {
+    static var previews: some View {
+        GameView(numQuestions: 5, numChosen: 2)
+    }
+}
+*/
+
+
+
+
+
+
+
 //
 //  GameView.swift
 //  MultiplicationPractice
@@ -7,7 +132,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct GameView: View {
     // View settings
     @State private var gameView = true
     @State private var resultsView = false
@@ -46,11 +171,14 @@ struct ContentView: View {
     // Animation settings
     @State private var chalkboardAnimationAmount = 0.0
     @State private var spinAnimation = 0.0
-
+    
     // Game settings
     @State private var questionCount = 0
     @State private var selectedAnswer = 0
     @State private var score = 0
+    
+
+    @StateObject private var model = GameViewModel()
     
     var body: some View {
         if gameView {
@@ -83,7 +211,7 @@ struct ContentView: View {
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
                                             .shadow(radius: 5)
                                             .shadow(color: .black, radius: 5, x: 5, y: 5)
-                                        }
+                                    }
                                 }
                             }
                             .rotation3DEffect(.degrees(spinAnimation), axis: (x:0,y:1,z:0))
@@ -94,7 +222,7 @@ struct ContentView: View {
                                     .frame(width: 180, height: 50, alignment: .center)
                                     .clipShape(RoundedRectangle(cornerRadius: 20))
                                 Button(){
-                                    addNewQuestion()
+                                    model.addNewQuestion()
                                 } label: {
                                     Text("\(numChosen)     X     \(multiplyBy)")
                                         .font(.largeTitle).bold()
@@ -104,7 +232,7 @@ struct ContentView: View {
                         }
                         VStack{
                             Spacer()
-            /*Selection 1*/VStack {
+                            /*Selection 1*/VStack {
                                 Button() {
                                 } label: {
                                     Image("\(animals[randomAnimal])")
@@ -117,32 +245,32 @@ struct ContentView: View {
                                         .frame(width: 280, height: 30, alignment: .center)
                                 }.addButtonModifier()
                             }
-            /*Selection 2*/VStack {
-                            Button() {
-                            } label: {
-                                Image("\(animals[randomAnimal])")
+                            /*Selection 2*/VStack {
+                                Button() {
+                                } label: {
+                                    Image("\(animals[randomAnimal])")
+                                }
+                                Button(){
+                                    selectedAnswer = answers[1]
+                                    determineOutcome()
+                                } label: {
+                                    Text("\(answers[1])")
+                                        .frame(width: 280, height: 30, alignment: .center)
+                                }.addButtonModifier()
                             }
-                            Button(){
-                                selectedAnswer = answers[1]
-                                determineOutcome()
-                            } label: {
-                                Text("\(answers[1])")
-                                    .frame(width: 280, height: 30, alignment: .center)
-                            }.addButtonModifier()
-                        }
-            /*Selection 3*/VStack {
-                            Button() {
-                            } label: {
-                                Image("\(animals[randomAnimal])")
+                            /*Selection 3*/VStack {
+                                Button() {
+                                } label: {
+                                    Image("\(animals[randomAnimal])")
+                                }
+                                Button(){
+                                    selectedAnswer = answers[2]
+                                    determineOutcome()
+                                } label: {
+                                    Text("\(answers[2])")
+                                        .frame(width: 280, height: 30, alignment: .center)
+                                }.addButtonModifier()
                             }
-                            Button(){
-                                selectedAnswer = answers[2]
-                                determineOutcome()
-                            } label: {
-                                Text("\(answers[2])")
-                                    .frame(width: 280, height: 30, alignment: .center)
-                            }.addButtonModifier()
-                        }
                             Spacer()
                         }
                         .frame(width: 300, height: 460, alignment: .center)
@@ -163,7 +291,7 @@ struct ContentView: View {
             ResultsView(score: score, questionCount: questionCount)
         }
     }
-
+    
     func determineOutcome () {
         questionCount += 1
         if selectedAnswer == answer {
@@ -189,7 +317,7 @@ struct ContentView: View {
         answer = numChosen * multiplyBy
         answers = getAnswers
     }
-
+    
     func showResults() {
         gameView.toggle()
         resultsView.toggle()
@@ -209,5 +337,10 @@ struct buttonModifier: ViewModifier {
 extension View {
     func addButtonModifier() -> some View {
         modifier(buttonModifier())
+    }
+}
+struct GameView_Previews: PreviewProvider {
+    static var previews: some View {
+        GameView(numQuestions: 5, numChosen: 2)
     }
 }
