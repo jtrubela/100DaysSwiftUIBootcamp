@@ -158,9 +158,9 @@ extension View {
     }
 }
 
-//struct ContentViewsss_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MenuView()
-//    }
-//}
-//
+struct ContentViewsss_Previews: PreviewProvider {
+    static var previews: some View {
+        MenuView()
+    }
+}
+

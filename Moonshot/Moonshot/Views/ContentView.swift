@@ -35,10 +35,8 @@ struct ContentView: View {
                 }
                 else {
                     MissionListView()
+                }
             }
-                
-            }
-            
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Picker(selection: $listChoice, label: Text("Choose View type")) {
@@ -47,7 +45,6 @@ struct ContentView: View {
                     }
                     .pickerStyle(.inline)
                         .font(.largeTitle)
-                    
                 }
             }
             .navigationTitle("Moonshot")

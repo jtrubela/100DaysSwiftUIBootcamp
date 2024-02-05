@@ -87,9 +87,6 @@ struct MissionGridView: View {
 struct MissionListView: View {
     let control = MissionControl()
     
-//    var mission: Mission
-
-    
     var body: some View {
         ForEach(control.missions) { mission in
             NavigationLink {
@@ -144,7 +141,6 @@ struct MissionView: View {
 
 struct MissionView_Previews: PreviewProvider {
     static let control: MissionControl = MissionControl()
-    
     
     static var previews: some View {
         MissionView(mission: control.missions[0], astronauts: control.astronauts)

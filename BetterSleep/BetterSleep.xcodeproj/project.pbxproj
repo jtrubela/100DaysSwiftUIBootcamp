@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D3A6A382B7094D500423DDA /* ContentView Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A6A372B7094D500423DDA /* ContentView Modifiers.swift */; };
+		3D3A6A3C2B70A5BB00423DDA /* BedtimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A6A3B2B70A5BB00423DDA /* BedtimeView.swift */; };
+		3D3A6A3E2B70A61B00423DDA /* InputFieldItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A6A3D2B70A61B00423DDA /* InputFieldItems.swift */; };
+		3D3A6A412B70AACD00423DDA /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A6A402B70AACD00423DDA /* Background.swift */; };
 		FFE053F4277923BB00E60A85 /* BetterSleepApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE053F3277923BB00E60A85 /* BetterSleepApp.swift */; };
 		FFE053F6277923BB00E60A85 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE053F5277923BB00E60A85 /* ContentView.swift */; };
 		FFE053F8277923BD00E60A85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFE053F7277923BD00E60A85 /* Assets.xcassets */; };
@@ -32,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D3A6A372B7094D500423DDA /* ContentView Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView Modifiers.swift"; sourceTree = "<group>"; };
+		3D3A6A3B2B70A5BB00423DDA /* BedtimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeView.swift; sourceTree = "<group>"; };
+		3D3A6A3D2B70A61B00423DDA /* InputFieldItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldItems.swift; sourceTree = "<group>"; };
+		3D3A6A402B70AACD00423DDA /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		FFE053F0277923BB00E60A85 /* BetterSleep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterSleep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE053F3277923BB00E60A85 /* BetterSleepApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSleepApp.swift; sourceTree = "<group>"; };
 		FFE053F5277923BB00E60A85 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +75,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D3A6A392B7094E200423DDA /* Content View */ = {
+			isa = PBXGroup;
+			children = (
+				FFE053F5277923BB00E60A85 /* ContentView.swift */,
+				3D3A6A3F2B70AA8500423DDA /* View Model */,
+			);
+			path = "Content View";
+			sourceTree = "<group>";
+		};
+		3D3A6A3A2B70951B00423DDA /* View Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				3D3A6A372B7094D500423DDA /* ContentView Modifiers.swift */,
+			);
+			path = "View Modifiers";
+			sourceTree = "<group>";
+		};
+		3D3A6A3F2B70AA8500423DDA /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D3A6A402B70AACD00423DDA /* Background.swift */,
+				3D3A6A3D2B70A61B00423DDA /* InputFieldItems.swift */,
+				3D3A6A3B2B70A5BB00423DDA /* BedtimeView.swift */,
+				3D3A6A3A2B70951B00423DDA /* View Modifiers */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		FFE053E7277923BB00E60A85 = {
 			isa = PBXGroup;
 			children = (
@@ -89,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				FFE053F3277923BB00E60A85 /* BetterSleepApp.swift */,
-				FFE053F5277923BB00E60A85 /* ContentView.swift */,
+				3D3A6A392B7094E200423DDA /* Content View */,
 				FFE0543B277A48E500E60A85 /* SleepCalculator.mlmodel */,
 				FFE053F7277923BD00E60A85 /* Assets.xcassets */,
 				FFE053F9277923BD00E60A85 /* Preview Content */,
@@ -235,9 +271,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D3A6A3E2B70A61B00423DDA /* InputFieldItems.swift in Sources */,
+				3D3A6A412B70AACD00423DDA /* Background.swift in Sources */,
+				3D3A6A3C2B70A5BB00423DDA /* BedtimeView.swift in Sources */,
 				FFE053F6277923BB00E60A85 /* ContentView.swift in Sources */,
 				FFE0543C277A48E500E60A85 /* SleepCalculator.mlmodel in Sources */,
 				FFE053F4277923BB00E60A85 /* BetterSleepApp.swift in Sources */,
+				3D3A6A382B7094D500423DDA /* ContentView Modifiers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
