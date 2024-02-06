@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct ResultsView: View {
     @State private var resultsView = true
     @State public var score: Int

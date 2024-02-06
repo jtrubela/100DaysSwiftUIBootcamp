@@ -132,19 +132,40 @@ struct GameView_Previews: PreviewProvider {
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct GameView: View {
     // View settings
     @State private var gameView = true
     @State private var resultsView = false
+    
+    
     @State private var animals = ["bear","buffalo","chick","chicken","cow","crocodile","dog","duck","elephant","frog","giraffe","goat","gorilla","hippo","horse","monkey","monkey","moose","narwhal","owl","panda","parrot","penguin","pig","rabbit","rhino","sloth","snake","walrus","whale","zebra"].shuffled()
+    // Calculate random animal
     var randomAnimal: Int {
         let number = Int.random(in: 0...30)
         return number
-    } // Calculate random animal
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     // User settings
     @State public var numQuestions: Int
     @State public var numChosen: Int
+    
+    
+    
+    
+    
+    
+    
+    
     // User math settings
     @State private var answer = 0
     @State private var answers = [0,0,0,0].shuffled()
@@ -339,6 +360,7 @@ extension View {
         modifier(buttonModifier())
     }
 }
+@available(iOS 16.0, *)
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
         GameView(numQuestions: 5, numChosen: 2)

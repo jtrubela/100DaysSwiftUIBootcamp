@@ -14,6 +14,7 @@
 		3D3A6A572B70D64600423DDA /* BlackboardView Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A6A562B70D64600423DDA /* BlackboardView Items.swift */; };
 		3D3A6A592B70D68200423DDA /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A6A582B70D68200423DDA /* Background.swift */; };
 		3D3A6A5B2B70D6A800423DDA /* AnimalSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A6A5A2B70D6A800423DDA /* AnimalSelectionView.swift */; };
+		3D6EE2942B71E813004F9C65 /* Navigation Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EE2932B71E813004F9C65 /* Navigation Path.swift */; };
 		3D8EAF0C2786371600E23E83 /* MultiplicationPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8EAF0B2786371600E23E83 /* MultiplicationPracticeApp.swift */; };
 		3D8EAF0E2786371600E23E83 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8EAF0D2786371600E23E83 /* GameView.swift */; };
 		3D8EAF102786371900E23E83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D8EAF0F2786371900E23E83 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		3D3A6A562B70D64600423DDA /* BlackboardView Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlackboardView Items.swift"; sourceTree = "<group>"; };
 		3D3A6A582B70D68200423DDA /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		3D3A6A5A2B70D6A800423DDA /* AnimalSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalSelectionView.swift; sourceTree = "<group>"; };
+		3D6EE2932B71E813004F9C65 /* Navigation Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation Path.swift"; sourceTree = "<group>"; };
 		3D8EAF082786371600E23E83 /* MultiplicationPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiplicationPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8EAF0B2786371600E23E83 /* MultiplicationPracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationPracticeApp.swift; sourceTree = "<group>"; };
 		3D8EAF0D2786371600E23E83 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		3D8EAEFF2786371600E23E83 = {
 			isa = PBXGroup;
 			children = (
+				3D6EE2932B71E813004F9C65 /* Navigation Path.swift */,
 				3D8EAF0A2786371600E23E83 /* MultiplicationPractice */,
 				3D8EAF092786371600E23E83 /* Products */,
 			);
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D8EAF0E2786371600E23E83 /* GameView.swift in Sources */,
+				3D6EE2942B71E813004F9C65 /* Navigation Path.swift in Sources */,
 				3DBCB9B6278A11B0009FB070 /* ResultsView.swift in Sources */,
 				3D3A6A522B70CE5800423DDA /* Game Functions.swift in Sources */,
 				3D3A6A432B70B7E500423DDA /* MenuView Modifiers.swift in Sources */,
