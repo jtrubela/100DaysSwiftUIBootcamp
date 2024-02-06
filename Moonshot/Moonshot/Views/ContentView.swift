@@ -10,10 +10,6 @@ import SwiftUI
 struct ContentView: View {
     let control = MissionControl()
 
-//    let columns = [
-//        GridItem(.adaptive(minimum: 150))
-//    ]
-//
     var pickerChoices = [
         "List", "Grid"
     ]
@@ -22,7 +18,8 @@ struct ContentView: View {
     enum listView {
         case List, Grid
     }
-
+    
+    
     
     @State var listChoice: listView = .Grid
 

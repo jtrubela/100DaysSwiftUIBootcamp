@@ -202,6 +202,26 @@ struct GameView: View {
     @StateObject private var model = GameViewModel()
     
     var body: some View {
+        
+        NavigationStack(path: $pathState.path) {
+            
+            GameBackground().ignoresSafeArea()
+            VStack{
+            }
+            .navigationDestination(for: PathState.Destination.self, destination: { destination in
+                switch destination {
+                    case .menuView:
+                        MenuView()
+                    case .gameView:
+                        GameView(numQuestions: Int(selectedNumber), numChosen: numQuestions)
+                    case .resultsView:
+                        ResultsView(score: 0, questionCount: numQuestions)
+                }
+            })
+            .padding()
+        }
+        
+        
         if gameView {
             NavigationView {
                 ZStack{
