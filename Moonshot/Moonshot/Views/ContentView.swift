@@ -25,7 +25,7 @@ struct ContentView: View {
 
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 if listChoice == .Grid{
                     MissionGridView()
@@ -34,6 +34,8 @@ struct ContentView: View {
                     MissionListView()
                 }
             }
+            .navigationDestination(for: Mission.self) { mission in
+                MissionCard(mission: mission) }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Picker(selection: $listChoice, label: Text("Choose View type")) {

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Mission: Codable, Identifiable {
+struct Mission: Codable, Identifiable, Hashable {
     let id: Int
     
     let launchDate: Date?
@@ -26,7 +26,18 @@ struct Mission: Codable, Identifiable {
     }
     
     let description: String
+    
+    // Implement hash(into:) method for Hashable conformance
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    // Implement equality comparison for == operator
+    static func == (lhs: Mission, rhs: Mission) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
+
 
 class MissionControl: ObservableObject {
     @Published var missions: [Mission] = Bundle.main.decode("missions.json")
